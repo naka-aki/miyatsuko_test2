@@ -1,0 +1,195 @@
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at C:/Ruby24-x64/bin/rake:23)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (31.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpdateSchema1 (20181015032137)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "employees" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "emp_id" varchar, "name" varchar, "age" integer, "address" varchar, "busho" varchar, "created_at" datetime, "updated_at" datetime)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181015032137"]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-15 06:24:24.226994"], ["updated_at", "2018-10-15 06:24:24.226994"]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for ::1 at 2018-10-15 15:26:32 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for ::1 at 2018-10-15 15:26:35 +0900
+Processing by RoutesController#index as HTML
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/activesupport-5.2.1/lib/active_support/lazy_load_hooks.rb:71)
+  Rendering routes/index.html.erb within layouts/application
+  Rendered routes/index.html.erb within layouts/application (1.0ms)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename c:/rails/miyatsuko_test1/app/assets/stylesheets/_variables.css.scss to c:/rails/miyatsuko_test1/app/assets/stylesheets/_variables.scss. (called from _app_views_layouts_application_html_erb__498385617_53636840 at c:/rails/miyatsuko_test1/app/views/layouts/application.html.erb:5)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename c:/rails/miyatsuko_test1/app/assets/stylesheets/_bootstrap_overrides.css.scss to c:/rails/miyatsuko_test1/app/assets/stylesheets/_bootstrap_overrides.scss. (called from _app_views_layouts_application_html_erb__498385617_53636840 at c:/rails/miyatsuko_test1/app/views/layouts/application.html.erb:5)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename c:/rails/miyatsuko_test1/app/assets/stylesheets/_variables.css.scss to c:/rails/miyatsuko_test1/app/assets/stylesheets/_variables.scss. (called from _app_views_layouts_application_html_erb__498385617_53636840 at c:/rails/miyatsuko_test1/app/views/layouts/application.html.erb:5)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename c:/rails/miyatsuko_test1/app/assets/stylesheets/_bootstrap_overrides.css.scss to c:/rails/miyatsuko_test1/app/assets/stylesheets/_bootstrap_overrides.scss. (called from _app_views_layouts_application_html_erb__498385617_53636840 at c:/rails/miyatsuko_test1/app/views/layouts/application.html.erb:5)
+Completed 200 OK in 4577ms (Views: 4073.7ms)
+
+
+Started GET "/assets/application.self-3addcb1e5c04415a22d10ebf95cd80ddb485197d9b457a7f6b6027136352d958.css?body=1" for ::1 at 2018-10-15 15:26:43 +0900
+Started GET "/employees" for ::1 at 2018-10-15 15:28:51 +0900
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (4.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 555ms (Views: 432.5ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/employees/new" for ::1 at 2018-10-15 15:28:56 +0900
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 441ms (Views: 420.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees" for ::1 at 2018-10-15 15:29:37 +0900
+Processing by EmployeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u6U7ljw72W+XowuQg638YuHw0v/wFZjVtYYcN7wRVjiYyGmBoAIHp9VcSLrXmc6t+chB7AbzZPiYLPbSRJppdw==", "employee"=>{"emp_id"=>"10001", "name"=>"田中ルビー", "age"=>"34", "address"=>"東京都世田谷区世田谷1-1-1", "busho"=>"営業部"}, "commit"=>"保存"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (3.0ms)[0m  [1m[32mINSERT INTO "employees" ("emp_id", "name", "age", "address", "busho", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["emp_id", "10001"], ["name", "田中ルビー"], ["age", 34], ["address", "東京都世田谷区世田谷1-1-1"], ["busho", "営業部"], ["created_at", "2018-10-15 06:29:37.746204"], ["updated_at", "2018-10-15 06:29:37.746204"]]
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/employees/1
+Completed 302 Found in 28ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/employees/1" for ::1 at 2018-10-15 15:29:37 +0900
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 468ms (Views: 442.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/1/edit" for ::1 at 2018-10-15 15:29:41 +0900
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering employees/edit.html.erb within layouts/application
+  Rendered employees/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 434ms (Views: 433.9ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/employees/1" for ::1 at 2018-10-15 15:29:44 +0900
+Processing by EmployeesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"06JNOx4bSlf+D5Q5kXMIibQW3wl6Qrpdppu2UqDALUfwzx8sgiKUn7zw1xPFRzpGrC5MGoykRnCLMVy3WEsSCA==", "employee"=>{"emp_id"=>"10001", "name"=>"田中ルビー", "age"=>"34", "address"=>"東京都世田谷区世田谷1-1-1", "busho"=>"営業部"}, "commit"=>"保存", "id"=>"1"}
+  [1m[36mEmployee Load (1.0ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/employees/1
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/employees/1" for ::1 at 2018-10-15 15:29:44 +0900
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 448ms (Views: 431.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for ::1 at 2018-10-15 15:29:47 +0900
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 431ms (Views: 424.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees/new" for ::1 at 2018-10-15 15:29:48 +0900
+Processing by EmployeesController#new as HTML
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 433ms (Views: 421.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees" for ::1 at 2018-10-15 15:30:37 +0900
+Processing by EmployeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wsb5AE2X6uppCuqeSxzsm9OXHvytQOq07Ipmm4rEW6R5q6sX0a40Iiv1qbQfKN5Uy6+N71umFpnBIIx+ck9k6w==", "employee"=>{"emp_id"=>"10002", "name"=>"伊藤レイルズ", "age"=>"25", "address"=>"東京都渋谷区渋谷1-1-1", "busho"=>"開発部"}, "commit"=>"保存"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEmployee Create (2.0ms)[0m  [1m[32mINSERT INTO "employees" ("emp_id", "name", "age", "address", "busho", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["emp_id", "10002"], ["name", "伊藤レイルズ"], ["age", 25], ["address", "東京都渋谷区渋谷1-1-1"], ["busho", "開発部"], ["created_at", "2018-10-15 06:30:37.806814"], ["updated_at", "2018-10-15 06:30:37.806814"]]
+  [1m[35m (14.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/employees/2
+Completed 302 Found in 26ms (ActiveRecord: 15.9ms)
+
+
+Started GET "/employees/2" for ::1 at 2018-10-15 15:30:37 +0900
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT  "employees".* FROM "employees" WHERE "employees"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering employees/show.html.erb within layouts/application
+  Rendered employees/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 450ms (Views: 434.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for ::1 at 2018-10-15 15:30:40 +0900
+Processing by EmployeesController#index as HTML
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.0ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 423ms (Views: 411.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-10-15 15:44:09 +0900
+Processing by RoutesController#index as HTML
+  Rendering routes/index.html.erb within layouts/application
+  Rendered routes/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 433ms (Views: 413.9ms)
+
+
